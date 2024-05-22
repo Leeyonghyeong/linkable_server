@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger'
 import {
   CreateDateColumn,
   PrimaryGeneratedColumn,
@@ -6,11 +7,20 @@ import {
 
 export class CommonEntity {
   @PrimaryGeneratedColumn('uuid')
-  id: string
+  @ApiProperty({
+    description: 'uuid',
+  })
+  uuid: string
 
   @CreateDateColumn()
+  @ApiProperty({
+    description: '생성일',
+  })
   createdAt: Date
 
   @UpdateDateColumn()
+  @ApiProperty({
+    description: '수정일',
+  })
   updatedAt: Date
 }
